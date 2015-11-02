@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+if (strpos(basename(__FILE__), 'phar')) {
+    require_once 'phar://doc-block-analyser.phar/vendor/autoload.php';
+} else {
+    if (file_exists(__DIR__.'/vendor/autoload.php')) {
+        require_once __DIR__.'/vendor/autoload.php';
+    } elseif (file_exists(__DIR__.'/../../autoload.php')) {
+        require_once __DIR__ . '/../../autoload.php';
+    } else {
+        require_once 'phar://doc-block-analyser.phar/vendor/autoload.php';
+    }
+}
+
+$application = new Benoth\StaticReflection\Application('DocBlockAnalyser', '1.0.0');
+$application->run();

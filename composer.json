@@ -1,0 +1,36 @@
+{
+    "name": "benoth/static-reflection",
+    "description": "Static Reflection library compatible with PHP native Reflection",
+    "type": "library",
+    "require": {
+        "php": ">=5.4",
+        "nikic/php-parser": "dev-master",
+        "phpdocumentor/reflection-docblock": "~2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luc Vancrayelynghe",
+            "email": "luc.vancrayelynghe@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Benoth\\StaticReflection\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Benoth\\StaticReflection\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
