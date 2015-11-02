@@ -17,7 +17,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->fixturesPath = __DIR__.'/fixtures';
+        $this->fixturesPath = __DIR__.'/Fixtures';
 
         $phpParserFactory = new ParserFactory();
         $phpParser        = $phpParserFactory->create(ParserFactory::PREFER_PHP7);
