@@ -9,7 +9,6 @@ foreach ([__DIR__.'/../../../autoload.php', __DIR__.'/../vendor/autoload.php'] a
 }
 ini_set('xdebug.max_nesting_level', 3000);
 
-use Benoth\StaticReflection\Parser\DebugNodeVisitor;
 use Benoth\StaticReflection\Parser\ParsingContext;
 use Benoth\StaticReflection\Parser\ReflectorNodeVisitor;
 use Benoth\StaticReflection\ReflectionsIndex;
@@ -28,7 +27,6 @@ $index   = new ReflectionsIndex();
 $context = new ParsingContext($phpParser, $traverser, $index);
 
 $traverser->addVisitor(new NameResolver());
-// $traverser->addVisitor(new DebugNodeVisitor());
 $traverser->addVisitor(new ReflectorNodeVisitor($context));
 
 $argc = $argc - 1;
