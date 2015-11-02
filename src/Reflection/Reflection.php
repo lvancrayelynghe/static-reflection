@@ -274,7 +274,7 @@ abstract class Reflection implements \Reflector
      *
      * @internal
      *
-     * @param int $startLine
+     * @param int $endLine
      *
      * @return self
      */
