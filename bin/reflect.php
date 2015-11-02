@@ -12,6 +12,7 @@ ini_set('xdebug.max_nesting_level', 3000);
 use Benoth\StaticReflection\Parser\ParsingContext;
 use Benoth\StaticReflection\Parser\ReflectorNodeVisitor;
 use Benoth\StaticReflection\ReflectionsIndex;
+use Benoth\StaticReflection\Reflection\ReflectionClassLike;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
