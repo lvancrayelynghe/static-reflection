@@ -71,7 +71,6 @@ trait ConstantTrait
             }
         }
 
-        // throw new \ReflectionException('Constant '.$constantSearchedName.' does not exist');
         return false;
     }
 
