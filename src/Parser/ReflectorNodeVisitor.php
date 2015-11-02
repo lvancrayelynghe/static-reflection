@@ -117,7 +117,7 @@ class ReflectorNodeVisitor extends NodeVisitorAbstract
 
     public function addTrait(TraitNode $node)
     {
-        $trait = $this->buildClassLikeReflection($node);
+        $this->buildClassLikeReflection($node);
     }
 
     public function addTraitUse(TraitUseNode $node)
