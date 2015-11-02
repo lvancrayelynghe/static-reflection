@@ -281,7 +281,7 @@ abstract class ReflectionClassLike extends Reflection
             return $methods;
         }
 
-        return array_filter($methods, function ($method) use ($filter) {
+        return array_filter($methods, function (ReflectionMethod $method) use ($filter) {
             if (self::IS_PRIVATE === (self::IS_PRIVATE & $filter) && $method->isPrivate()) {
                 return true;
             } elseif (self::IS_PROTECTED === (self::IS_PROTECTED & $filter) && $method->isProtected()) {

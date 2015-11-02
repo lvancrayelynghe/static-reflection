@@ -191,14 +191,14 @@ trait PropertyTrait
             return $properties;
         }
 
-        return array_filter($properties, function ($method) use ($filter) {
-            if (self::IS_PRIVATE === (self::IS_PRIVATE & $filter) && $method->isPrivate()) {
+        return array_filter($properties, function (ReflectionProperty $property) use ($filter) {
+            if (self::IS_PRIVATE === (self::IS_PRIVATE & $filter) && $property->isPrivate()) {
                 return true;
-            } elseif (self::IS_PROTECTED === (self::IS_PROTECTED & $filter) && $method->isProtected()) {
+            } elseif (self::IS_PROTECTED === (self::IS_PROTECTED & $filter) && $property->isProtected()) {
                 return true;
-            } elseif (self::IS_PUBLIC === (self::IS_PUBLIC & $filter) && $method->isPublic()) {
+            } elseif (self::IS_PUBLIC === (self::IS_PUBLIC & $filter) && $property->isPublic()) {
                 return true;
-            } elseif (self::IS_STATIC === (self::IS_STATIC & $filter) && $method->isStatic()) {
+            } elseif (self::IS_STATIC === (self::IS_STATIC & $filter) && $property->isStatic()) {
                 return true;
             }
 
