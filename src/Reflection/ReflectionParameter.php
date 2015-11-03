@@ -116,11 +116,17 @@ class ReflectionParameter extends Reflection
     /**
      * Gets the class type hinted for the parameter as a ReflectionClass object.
      *
-     * @return ReflectionClass
+     * @return ReflectionClass|null
      */
     public function getClass()
     {
-        return $this->getIndex()->getClass($this->getType());
+        if ($this->declaringFunction instanceof ReflectionFunction) {
+            $source = $this->getDeclaringFunction();
+        } else {
+            $source = $this->getDeclaringClass();
+        }
+
+        return $source->getIndex()->getClass($this->getType());
     }
 
     /**
