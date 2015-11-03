@@ -56,7 +56,7 @@ abstract class ReflectionClassLike extends Reflection
      *
      * @param int $filter Any combination of ReflectionMethod::IS_STATIC, ReflectionMethod::IS_PUBLIC, ReflectionMethod::IS_PROTECTED, ReflectionMethod::IS_PRIVATE, ReflectionMethod::IS_ABSTRACT, ReflectionMethod::IS_FINAL.
      *
-     * @return Benoth\StaticReflection\Reflection\ReflectionMethod[]
+     * @return Benoth\StaticReflection\Reflection\ReflectionMethod[string]
      */
     public function getMethods($filter = null)
     {
@@ -100,7 +100,7 @@ abstract class ReflectionClassLike extends Reflection
      *
      * @param int $filter Any combination of ReflectionMethod::IS_STATIC, ReflectionMethod::IS_PUBLIC, ReflectionMethod::IS_PROTECTED, ReflectionMethod::IS_PRIVATE, ReflectionMethod::IS_ABSTRACT, ReflectionMethod::IS_FINAL.
      *
-     * @return \Benoth\StaticReflection\Reflection\ReflectionMethod[]
+     * @return \Benoth\StaticReflection\Reflection\ReflectionMethod[string]
      */
     public function getSelfMethods($filter = null)
     {
@@ -270,10 +270,10 @@ abstract class ReflectionClassLike extends Reflection
     /**
      * Filter an array of methods.
      *
-     * @param \Benoth\StaticReflection\Reflection\ReflectionMethod[] $methods
-     * @param int                                                    $filter  Any combination of ReflectionMethod::IS_STATIC, ReflectionMethod::IS_PUBLIC, ReflectionMethod::IS_PROTECTED, ReflectionMethod::IS_PRIVATE, ReflectionMethod::IS_ABSTRACT, ReflectionMethod::IS_FINAL.
+     * @param \Benoth\StaticReflection\Reflection\ReflectionMethod[string] $methods
+     * @param int                                                          $filter  Any combination of ReflectionMethod::IS_STATIC, ReflectionMethod::IS_PUBLIC, ReflectionMethod::IS_PROTECTED, ReflectionMethod::IS_PRIVATE, ReflectionMethod::IS_ABSTRACT, ReflectionMethod::IS_FINAL.
      *
-     * @return \Benoth\StaticReflection\Reflection\ReflectionMethod[]
+     * @return \Benoth\StaticReflection\Reflection\ReflectionMethod[string]
      */
     protected function filterMethods(array $methods, $filter)
     {

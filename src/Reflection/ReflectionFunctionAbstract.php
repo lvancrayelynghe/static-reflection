@@ -14,7 +14,7 @@ abstract class ReflectionFunctionAbstract extends Reflection
     /**
      * Get the parameters.
      *
-     * @return Benoth\StaticReflection\Reflection\ReflectionParameter[]
+     * @return Benoth\StaticReflection\Reflection\ReflectionParameter[string]
      */
     public function getParameters()
     {

@@ -12,6 +12,9 @@ use Benoth\StaticReflection\Reflection\ReflectionParameter;
 use Benoth\StaticReflection\Reflection\ReflectionProperty;
 use Benoth\StaticReflection\Reflection\ReflectionTrait;
 use PhpParser\Node as NodeInterface;
+use PhpParser\Node\Expr as AbstractExprNode;
+use PhpParser\Node\Expr\Yield_ as YieldNode;
+use PhpParser\Node\Expr\YieldFrom as YieldFromNode;
 use PhpParser\Node\Stmt as AbstractNode;
 use PhpParser\Node\Stmt\Class_ as ClassNode;
 use PhpParser\Node\Stmt\ClassConst as ClassConstNode;
@@ -26,9 +29,6 @@ use PhpParser\Node\Stmt\TraitUse as TraitUseNode;
 use PhpParser\Node\Stmt\TraitUseAdaptation\Alias as TraitUseAliasNode;
 use PhpParser\Node\Stmt\TraitUseAdaptation\Precedence as TraitUsePrecedenceNode;
 use PhpParser\Node\Stmt\Use_ as UseNode;
-use PhpParser\Node\Expr as AbstractExprNode;
-use PhpParser\Node\Expr\Yield_ as YieldNode;
-use PhpParser\Node\Expr\YieldFrom as YieldFromNode;
 use PhpParser\NodeVisitorAbstract;
 
 class ReflectorNodeVisitor extends NodeVisitorAbstract
@@ -248,7 +248,7 @@ class ReflectorNodeVisitor extends NodeVisitorAbstract
             if (!is_null($param->default)) {
                 $parameter->setRequired(false);
 
-                if ($param->default->getType() === 'Expr_ConstFetch' && !in_array($param->default->name->toString(), ['null','false','true'])) {
+                if ($param->default->getType() === 'Expr_ConstFetch' && !in_array($param->default->name->toString(), ['null', 'false', 'true'])) {
                     $parameter->setDefaultValueConstantName($param->default->name->toString());
                 } elseif ($param->default->getType() === 'Expr_ClassConstFetch') {
                     $parameter->setDefaultValueConstantName($param->default->class->toString().'::'.$param->default->name);

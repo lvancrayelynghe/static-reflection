@@ -80,7 +80,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
             }
         }
 
-        if (($class instanceof ReflectionClass || $class instanceof \ReflectionClass) && ($class->getParentClass() instanceof ReflectionClass || $class->getParentClass() instanceof \ReflectionClass)) {
+        if ($class instanceof ReflectionClass) {
             foreach ($class->getTraitsMethods() as $methodName => $method) {
                 if ($methodName === $this->getName()) {
                     $methods[] = $method;
@@ -114,7 +114,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
             return $methods[1];
         }
 
-        return null;
+        return;
     }
 
     /**
