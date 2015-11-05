@@ -15,6 +15,7 @@ use PhpParser\Node as NodeInterface;
 use PhpParser\Node\Expr as AbstractExprNode;
 use PhpParser\Node\Expr\Yield_ as YieldNode;
 use PhpParser\Node\Expr\YieldFrom as YieldFromNode;
+use PhpParser\Node\Scalar\MagicConst;
 use PhpParser\Node\Stmt as AbstractNode;
 use PhpParser\Node\Stmt\Class_ as ClassNode;
 use PhpParser\Node\Stmt\ClassConst as ClassConstNode;
@@ -281,8 +282,7 @@ class ReflectorNodeVisitor extends NodeVisitorAbstract
 
     protected function resolveValue(NodeInterface $nodeValue)
     {
-        $type = $nodeValue->getType();
-        if (strpos($type, '_MagicConst_')) {
+        if ($nodeValue instanceof MagicConst) {
             return $nodeValue->getName();
         }
 
