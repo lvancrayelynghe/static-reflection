@@ -73,6 +73,25 @@ trait InterfaceTrait
     }
 
     /**
+     * Check whether current entity implements or extends an interface
+     *
+     * @param  string  $interfaceName The interface fully qualified name
+     *
+     * @return bool
+     */
+    public function hasInterface($interfaceName)
+    {
+        $interfaceName = ltrim($interfaceName, '\\');
+        foreach ($this->getInterfaces() as $interface) {
+            if ($interfaceName === $interface->getName()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Add an interface.
      *
      * @param string $interface Fully Qualified Interface Name

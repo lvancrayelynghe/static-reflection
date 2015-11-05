@@ -43,6 +43,32 @@ class ReflectionClass extends ReflectionClassLike
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function isSubclassOf($className)
+    {
+        if (!is_string($className)) {
+            return false;
+        }
+
+        $className = ltrim($className, '\\');
+        if ($this->hasInterface($className)) {
+            return true;
+        }
+
+        $parent = $this->getParentClass();
+        while ($parent instanceof self) {
+            if ($className === $parent->getName()) {
+                return true;
+            }
+
+            $parent = $parent->getParentClass();
+        }
+
+        return false;
+    }
+
+    /**
      * Returns if the class is cloneable.
      *
      * @return bool

@@ -19,35 +19,6 @@ abstract class ReflectionClassLike extends Reflection
      */
     public function isSubclassOf($className)
     {
-        if (!is_string($className)) {
-            return false;
-        }
-
-        if (!$this instanceof ReflectionClass && !$this instanceof ReflectionInterface) {
-            return false;
-        }
-
-        $className = ltrim($className, '\\');
-
-        foreach ($this->getInterfaces() as $interface) {
-            if ($className === $interface->getName()) {
-                return true;
-            }
-        }
-
-        if (!$this instanceof ReflectionClass) {
-            return false;
-        }
-
-        $parent = $this->getParentClass();
-        while ($parent instanceof self) {
-            if ($className === $parent->getName()) {
-                return true;
-            }
-
-            $parent = $parent->getParentClass();
-        }
-
         return false;
     }
 
