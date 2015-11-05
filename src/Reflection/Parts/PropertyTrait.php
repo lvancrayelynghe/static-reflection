@@ -166,7 +166,7 @@ trait PropertyTrait
     /**
      * Add a property to the reflected class.
      *
-     * @param ReflectionMethod $property
+     * @param ReflectionProperty $property
      */
     public function addProperty(ReflectionProperty $property)
     {
