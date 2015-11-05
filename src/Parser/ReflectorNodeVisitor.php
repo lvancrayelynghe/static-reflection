@@ -127,7 +127,7 @@ class ReflectorNodeVisitor extends NodeVisitorAbstract
             foreach ($node->adaptations as $adaptation) {
                 if ($adaptation instanceof TraitUseAliasNode) {
                     $this->addTraitUseAlias($adaptation, $trait);
-                } else {
+                } elseif ($adaptation instanceof TraitUsePrecedenceNode) {
                     $this->addTraitUsePrecedence($adaptation);
                 }
             }
