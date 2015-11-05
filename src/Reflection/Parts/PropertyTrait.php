@@ -14,7 +14,7 @@ trait PropertyTrait
      *
      * @param int $filter Any combination of ReflectionProperty::IS_STATIC, ReflectionProperty::IS_PUBLIC, ReflectionProperty::IS_PROTECTED, ReflectionProperty::IS_PRIVATE.
      *
-     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[string]
+     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[]
      */
     public function getProperties($filter = null)
     {
@@ -42,7 +42,7 @@ trait PropertyTrait
     /**
      * Gets an array of static properties, with inherited ones.
      *
-     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[string]
+     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[]
      */
     public function getStaticProperties()
     {
@@ -54,7 +54,7 @@ trait PropertyTrait
      *
      * @param int $filter Any combination of ReflectionProperty::IS_STATIC, ReflectionProperty::IS_PUBLIC, ReflectionProperty::IS_PROTECTED, ReflectionProperty::IS_PRIVATE.
      *
-     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[string]
+     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[]
      */
     public function getSelfProperties($filter = null)
     {
@@ -107,7 +107,7 @@ trait PropertyTrait
     /**
      * Gets default properties values, with inherited ones.
      *
-     * @return mixed[string]
+     * @return mixed[]
      */
     public function getDefaultProperties()
     {
@@ -180,10 +180,10 @@ trait PropertyTrait
     /**
      * Filter an array of properties.
      *
-     * @param \Benoth\StaticReflection\Reflection\ReflectionProperty[string] $properties
-     * @param int                                                            $filter     Any combination of ReflectionProperty::IS_STATIC, ReflectionProperty::IS_PUBLIC, ReflectionProperty::IS_PROTECTED, ReflectionProperty::IS_PRIVATE.
+     * @param \Benoth\StaticReflection\Reflection\ReflectionProperty[] $properties
+     * @param int                                                      $filter     Any combination of ReflectionProperty::IS_STATIC, ReflectionProperty::IS_PUBLIC, ReflectionProperty::IS_PROTECTED, ReflectionProperty::IS_PRIVATE.
      *
-     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[string]
+     * @return \Benoth\StaticReflection\Reflection\ReflectionProperty[]
      */
     protected function filterProperties(array $properties, $filter)
     {

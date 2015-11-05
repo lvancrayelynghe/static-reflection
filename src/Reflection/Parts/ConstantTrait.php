@@ -15,7 +15,7 @@ trait ConstantTrait
     /**
      * Gets defined constants from an entity, including inherited ones.
      *
-     * @return ReflectionConstant[string]
+     * @return ReflectionConstant[]
      */
     public function getConstants()
     {
@@ -41,7 +41,7 @@ trait ConstantTrait
     /**
      * Gets defined constants from an entity, without inherited ones.
      *
-     * @return ReflectionConstant[string]
+     * @return ReflectionConstant[]
      */
     public function getSelfConstants()
     {
