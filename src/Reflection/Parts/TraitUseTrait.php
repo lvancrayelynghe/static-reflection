@@ -13,6 +13,11 @@ trait TraitUseTrait
     protected $traitsMethodPrecedences = [];
 
     /**
+     * Must be implemented by classes using this trait
+     */
+    abstract public function getIndex();
+
+    /**
      * Returns an array of traits used by this class, without traits inherited from parents.
      *
      * Note that getTraits will NOT return any traits inherited from a parent.

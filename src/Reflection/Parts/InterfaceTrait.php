@@ -13,6 +13,11 @@ trait InterfaceTrait
     protected $interfaces = [];
 
     /**
+     * Must be implemented by classes using this trait
+     */
+    abstract public function getIndex();
+
+    /**
      * Gets the interfaces, including inherited ones.
      *
      * @return ReflectionInterface[]

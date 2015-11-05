@@ -13,6 +13,24 @@ trait ConstantTrait
     protected $constants = [];
 
     /**
+     * Gets the interfaces, without inherited ones.
+     *
+     * Must be implemented by classes using this trait
+     *
+     * @return ReflectionInterface[]
+     */
+    abstract public function getSelfInterfaces();
+
+    /**
+     * Gets the filename of the file in which the class has been defined.
+     *
+     * Must be implemented by classes using this trait.
+     *
+     * @return string
+     */
+    abstract public function getFileName();
+
+    /**
      * Gets defined constants from an entity, including inherited ones.
      *
      * @return ReflectionConstant[]

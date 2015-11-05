@@ -10,6 +10,25 @@ trait PropertyTrait
     protected $properties = [];
 
     /**
+     * Gets the fully qualified entity name (with the namespace).
+     *
+     * Must be implemented by classes using this trait
+     *
+     * @return string
+     */
+    abstract public function getName();
+
+
+    /**
+     * Gets the filename of the file in which the class has been defined.
+     *
+     * Must be implemented by classes using this trait.
+     *
+     * @return string
+     */
+    abstract public function getFileName();
+
+    /**
      * Gets an array of properties, with inherited ones.
      *
      * @param int $filter Any combination of ReflectionProperty::IS_STATIC, ReflectionProperty::IS_PUBLIC, ReflectionProperty::IS_PROTECTED, ReflectionProperty::IS_PRIVATE.
