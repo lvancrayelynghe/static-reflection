@@ -27,7 +27,7 @@ abstract class ReflectionClassLike extends Reflection
      *
      * @param int $filter Any combination of ReflectionMethod::IS_STATIC, ReflectionMethod::IS_PUBLIC, ReflectionMethod::IS_PROTECTED, ReflectionMethod::IS_PRIVATE, ReflectionMethod::IS_ABSTRACT, ReflectionMethod::IS_FINAL.
      *
-     * @return Benoth\StaticReflection\Reflection\ReflectionMethod[]
+     * @return ReflectionMethod[]
      */
     public function getMethods($filter = null)
     {

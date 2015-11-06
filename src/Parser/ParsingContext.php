@@ -62,6 +62,9 @@ class ParsingContext
         return file_get_contents($this->getFilePath());
     }
 
+    /**
+     * @param string $name
+     */
     public function addAlias($alias, $name)
     {
         $this->aliases[$alias] = $name;
@@ -72,6 +75,9 @@ class ParsingContext
         return $this->aliases;
     }
 
+    /**
+     * @param string $namespace
+     */
     public function enterNamespace($namespace)
     {
         $this->namespace = $namespace;
