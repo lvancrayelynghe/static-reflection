@@ -2,6 +2,7 @@
 
 namespace Benoth\StaticReflection\tests\ReflectionMethodTests;
 
+use Benoth\StaticReflection\Reflection\Reflection;
 use Benoth\StaticReflection\Tests\AbstractTestCase;
 
 class ReflectionMethodClassCompleteTest extends AbstractTestCase
@@ -186,5 +187,21 @@ class ReflectionMethodClassCompleteTest extends AbstractTestCase
         $this->assertSame(false, $this->methodPrivateMethodTraitA->returnsByRef());
         $this->assertSame(false, $this->methodAbstractProtectedMethod->returnsByRef());
         $this->assertSame(false, $this->methodPublicStaticMethodTraitA->returnsByRef());
+    }
+
+    public function testGetModifiers()
+    {
+        $this->assertSame(256, $this->methodCommon->getModifiers());
+        $this->assertSame(514, $this->methodAbstractProtectedMethod->getModifiers());
+        $this->assertSame(260, $this->methodFinalPublicMethod->getModifiers());
+        $this->assertSame(257, $this->methodPublicStaticMethod->getModifiers());
+    }
+
+    public function testGetModifiersNames()
+    {
+        $this->assertSame(['public'], Reflection::getModifierNames($this->methodCommon->getModifiers()));
+        $this->assertSame(['abstract', 'protected'], Reflection::getModifierNames($this->methodAbstractProtectedMethod->getModifiers()));
+        $this->assertSame(['final', 'public'], Reflection::getModifierNames($this->methodFinalPublicMethod->getModifiers()));
+        $this->assertSame(['static', 'public'], Reflection::getModifierNames($this->methodPublicStaticMethod->getModifiers()));
     }
 }

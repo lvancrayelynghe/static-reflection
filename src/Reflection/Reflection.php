@@ -148,21 +148,21 @@ abstract class Reflection implements \Reflector
     {
         $modifiers = 0;
 
-        if (method_exists($this, 'isStatic')) {
+        if (method_exists($this, 'isStatic') && $this->isStatic()) {
             $modifiers |= static::IS_STATIC;
         }
-        if (method_exists($this, 'isAbstract')) {
+        if (method_exists($this, 'isAbstract') && $this->isAbstract()) {
             $modifiers |= static::IS_ABSTRACT;
         }
-        if (method_exists($this, 'isFinal')) {
+        if (method_exists($this, 'isFinal') && $this->isFinal()) {
             $modifiers |= static::IS_FINAL;
         }
 
-        if (method_exists($this, 'isPublic')) {
+        if (method_exists($this, 'isPublic') && $this->isPublic()) {
             $modifiers |= static::IS_PUBLIC;
-        } elseif (method_exists($this, 'isProtected')) {
+        } elseif (method_exists($this, 'isProtected') && $this->isProtected()) {
             $modifiers |= static::IS_PROTECTED;
-        } elseif (method_exists($this, 'isPrivate')) {
+        } elseif (method_exists($this, 'isPrivate') && $this->isPrivate()) {
             $modifiers |= static::IS_PRIVATE;
         }
 

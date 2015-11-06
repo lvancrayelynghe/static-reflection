@@ -2,6 +2,7 @@
 
 namespace Benoth\StaticReflection\tests\ReflectionMethodTests;
 
+use Benoth\StaticReflection\Reflection\Reflection;
 use Benoth\StaticReflection\Tests\AbstractTestCase;
 
 class ReflectionMethodSimpleClassTest extends AbstractTestCase
@@ -127,5 +128,21 @@ class ReflectionMethodSimpleClassTest extends AbstractTestCase
         $this->assertSame(false, $this->methodMethod1->isGenerator());
         $this->assertSame(false, $this->methodMethod2->isGenerator());
         $this->assertSame(true, $this->methodMethod3->isGenerator());
+    }
+
+    public function testGetModifiers()
+    {
+        $this->assertSame(256, $this->methodConstruct->getModifiers());
+        $this->assertSame(256, $this->methodMethod1->getModifiers());
+        $this->assertSame(512, $this->methodMethod2->getModifiers());
+        $this->assertSame(1024, $this->methodMethod3->getModifiers());
+    }
+
+    public function testGetModifiersNames()
+    {
+        $this->assertSame(['public'], Reflection::getModifierNames($this->methodConstruct->getModifiers()));
+        $this->assertSame(['public'], Reflection::getModifierNames($this->methodMethod1->getModifiers()));
+        $this->assertSame(['protected'], Reflection::getModifierNames($this->methodMethod2->getModifiers()));
+        $this->assertSame(['private'], Reflection::getModifierNames($this->methodMethod3->getModifiers()));
     }
 }
