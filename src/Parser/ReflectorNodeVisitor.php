@@ -135,6 +135,9 @@ class ReflectorNodeVisitor extends NodeVisitorAbstract
         }
     }
 
+    /**
+     * @param NodeInterface\Name $trait
+     */
     public function addTraitUseAlias(TraitUseAliasNode $adaptation, $trait)
     {
         if (is_null($adaptation->trait)) {

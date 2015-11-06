@@ -34,6 +34,9 @@ class DebugNodeVisitor extends NodeVisitorAbstract
         $this->debug('AfterTraverse'.PHP_EOL);
     }
 
+    /**
+     * @param string $text
+     */
     protected function debug($text)
     {
         echo $text;
