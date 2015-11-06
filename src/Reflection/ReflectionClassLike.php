@@ -138,7 +138,7 @@ abstract class ReflectionClassLike extends Reflection
     /**
      * Checks if current entity implements an interface.
      *
-     * @param string $interface The interface name
+     * @param string $interfaceSearchedName The interface name
      *
      * @return bool
      */
